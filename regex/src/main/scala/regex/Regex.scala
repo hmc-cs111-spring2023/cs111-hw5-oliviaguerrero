@@ -6,7 +6,18 @@ package regex
   * data structure definitions for regular languages
   */
 
-// Add your definitions here
+trait RegularLanguage()
+
+case object Empty   extends RegularLanguage
+case object Epsilon extends RegularLanguage
+case class Character(val c: Char) extends RegularLanguage
+case class Union(val left: RegularLanguage, val right: RegularLanguage)
+                                                extends RegularLanguage
+case class Concat(val first: RegularLanguage, val rest: RegularLanguage)
+                                                extends RegularLanguage
+case class Star(val repeater: RegularLanguage)  extends RegularLanguage
+
+
 
 /** *****************************************************************************
   * Derivatives
